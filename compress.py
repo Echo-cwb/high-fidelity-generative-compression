@@ -81,7 +81,7 @@ def compress_and_save(model, args, data_loader, output_dir):
             actual_bpp, theoretical_bpp = compression_utils.save_compressed_format(compressed_output,
                 out_path=out_path)
             model.logger.info(f'Attained: {actual_bpp:.3f} bpp vs. theoretical: {theoretical_bpp:.3f} bpp.')
-  return compressed_output
+    return compressed_output
 
 
 def load_and_decompress(model, compressed_format_path, out_path):
