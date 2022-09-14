@@ -97,7 +97,7 @@ def load_and_decompress(model, compressed_format_path, out_path):
     model.logger.info('Decoding time: {:.2f} s'.format(delta_t))
     model.logger.info(f'Reconstruction saved to {out_path}')
 
-    return reconstruction
+    return compressed_output, reconstruction
 
 def compress_and_decompress(args):
 
