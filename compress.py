@@ -88,16 +88,18 @@ def load_and_decompress(model, compressed_format_path, out_path):
     # Decompress single image from compressed format on disk
 
     compressed_output = compression_utils.load_compressed_format(compressed_format_path)
+    compressed_output_copy  = compressed_output
     start_time = time.time()
     with torch.no_grad():
         reconstruction = model.decompress(compressed_output)
+        
 
     torchvision.utils.save_image(reconstruction, out_path, normalize=True)
     delta_t = time.time() - start_time
     model.logger.info('Decoding time: {:.2f} s'.format(delta_t))
     model.logger.info(f'Reconstruction saved to {out_path}')
 
-    return compressed_output, reconstruction
+    return compressed_output_copy, reconstruction
 
 def compress_and_decompress(args):
 
