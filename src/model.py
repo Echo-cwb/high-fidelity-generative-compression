@@ -306,7 +306,7 @@ class Model(nn.Module):
             self.logger.info(f'HL BPP: {attained_hbpp:.3f}')
             self.logger.info(f'L BPP: {attained_lbpp:.3f}')
 
-        return compression_output
+        return y, compression_output
 
 
     def decompress(self, compression_output):
